@@ -21,3 +21,8 @@ button {
 .highlight {
     background-color: yellow;
 }
+
+p {
+    margin-left: 5%;
+    text-align: left;
+}
