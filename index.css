@@ -18,5 +18,6 @@ button {
 }
 
 #down {
-    color: #f00
+    color: #f00;
+    font-size: 25px;
 }
