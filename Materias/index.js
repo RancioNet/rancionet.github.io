@@ -58,7 +58,8 @@ function Contenido() {
       boton.textContent = 'Mostrar texto';
       localStorage.setItem('Prefer', 'imagenes');
     }
-}
+  }
+
   // Cargar preferencia al cargar la página
   window.onload = function() {
     var preferencia = localStorage.getItem('Prefer');
