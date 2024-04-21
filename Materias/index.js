@@ -39,34 +39,50 @@ function RestaurarContenidoOriginal() {
 }
 
 function Contenido() {
-    var texto = document.querySelector('p');
+    var divsConTexto = document.querySelectorAll('div > p');
     var imagenes = document.querySelectorAll('img');
     var boton = document.querySelector('.Prefer');
 
-    if (texto.style.display === 'none') {
-      texto.style.display = 'block';
-      for (var i = 0; i < imagenes.length; i++) {
-        imagenes[i].style.display = 'none';
+    var textoVisible = false;
+    for (var i = 0; i < divsConTexto.length; i++) {
+      if (divsConTexto[i].style.display !== 'none') {
+        textoVisible = true;
+        break;
       }
-      boton.textContent = 'Mostrar imágenes';
+    }
+
+    var preferencia = localStorage.getItem('Prefer');
+    if (preferencia === null) {
       localStorage.setItem('Prefer', 'texto');
-    } else {
-      texto.style.display = 'none';
+      preferencia = 'texto'; // Establecer preferencia por defecto
+    }
+
+    if (preferencia === 'texto' && !textoVisible) {
       for (var i = 0; i < imagenes.length; i++) {
         imagenes[i].style.display = 'block';
       }
       boton.textContent = 'Mostrar texto';
-      localStorage.setItem('Prefer', 'imagenes');
+    } else {
+      if (!textoVisible) {
+        for (var i = 0; i < imagenes.length; i++) {
+          imagenes[i].style.display = 'none';
+        }
+        boton.textContent = 'Mostrar imágenes';
+        localStorage.setItem('Prefer', 'texto');
+      } else {
+        for (var i = 0; i < divsConTexto.length; i++) {
+          divsConTexto[i].style.display = (divsConTexto[i].style.display === 'none') ? 'block' : 'none';
+        }
+        for (var i = 0; i < imagenes.length; i++) {
+          imagenes[i].style.display = (divsConTexto[0].style.display === 'none') ? 'block' : 'none';
+        }
+        boton.textContent = (divsConTexto[0].style.display === 'none') ? 'Mostrar texto' : 'Mostrar imágenes';
+        localStorage.setItem('Prefer', (divsConTexto[0].style.display === 'none') ? 'imagenes' : 'texto');
+      }
     }
   }
 
   // Cargar preferencia al cargar la página
   window.onload = function() {
-    var preferencia = localStorage.getItem('Prefer');
-    if (preferencia === 'texto') {
-      Contenido(); // Mostrar texto
-      Contenido(); // Mostrar imágenes (opción predeterminada)
-    } else {
-      Contenido(); // Mostrar imágenes (opción predeterminada)
-    }
+    Contenido(); // Mostrar texto (opción predeterminada)
   }
