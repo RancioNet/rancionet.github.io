@@ -1,5 +1,9 @@
 let contenidoOriginal = null; // Variable global para almacenar el contenido original
 
+if(localStorage.getItem(Prefer) == null) {
+    localStorage.setItem('Prefer', 'imagenes');
+}
+
 function Buscar() {
     RestaurarContenidoOriginal(); // Restaurar el contenido original al principio de la búsqueda
 
