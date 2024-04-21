@@ -42,47 +42,23 @@ function Contenido() {
     var divsConTexto = document.querySelectorAll('div > p');
     var imagenes = document.querySelectorAll('img');
     var boton = document.querySelector('.Prefer');
+    var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
 
-    var textoVisible = false;
-    for (var i = 0; i < divsConTexto.length; i++) {
-      if (divsConTexto[i].style.display !== 'none') {
-        textoVisible = true;
-        break;
-      }
+    function actualizarContenido(preferenciaActual) {
+        divsConTexto.forEach(p => p.style.display = (preferenciaActual === 'txt') ? 'block' : 'none');
+        imagenes.forEach(img => img.style.display = (preferenciaActual === 'txt') ? 'none' : 'block');
+        boton.textContent = (preferenciaActual === 'txt') ? 'Mostrar imágenes' : 'Mostrar texto';
     }
 
-    var preferencia = localStorage.getItem('Prefer');
-    if (preferencia === null) {
-      localStorage.setItem('Prefer', 'texto');
-      preferencia = 'texto'; // Establecer preferencia por defecto
-    }
+    actualizarContenido(preferencia);
 
-    if (preferencia === 'texto' && !textoVisible) {
-      for (var i = 0; i < imagenes.length; i++) {
-        imagenes[i].style.display = 'block';
-      }
-      boton.textContent = 'Mostrar texto';
-    } else {
-      if (!textoVisible) {
-        for (var i = 0; i < imagenes.length; i++) {
-          imagenes[i].style.display = 'none';
-        }
-        boton.textContent = 'Mostrar imágenes';
-        localStorage.setItem('Prefer', 'texto');
-      } else {
-        for (var i = 0; i < divsConTexto.length; i++) {
-          divsConTexto[i].style.display = (divsConTexto[i].style.display === 'none') ? 'block' : 'none';
-        }
-        for (var i = 0; i < imagenes.length; i++) {
-          imagenes[i].style.display = (divsConTexto[0].style.display === 'none') ? 'block' : 'none';
-        }
-        boton.textContent = (divsConTexto[0].style.display === 'none') ? 'Mostrar texto' : 'Mostrar imágenes';
-        localStorage.setItem('Prefer', (divsConTexto[0].style.display === 'none') ? 'imagenes' : 'texto');
-      }
-    }
-  }
+    boton.addEventListener('mousedown', function() {
+        preferencia = (preferencia === 'txt') ? 'img' : 'txt';
+        localStorage.setItem('Prefer', preferencia);
+        actualizarContenido(preferencia);
+    });
+}
 
-  // Cargar preferencia al cargar la página
-  window.onload = function() {
-    Contenido(); // Mostrar texto (opción predeterminada)
-  }
+window.onload = function() {
+    Contenido();
+}
