@@ -39,13 +39,13 @@ function RestaurarContenidoOriginal() {
 }
 
 function Contenido() {
-    var divsConTexto = document.querySelectorAll('div > p');
+    var divsConTexto = document.querySelectorAll('div > p, div > table');
     var imagenes = document.querySelectorAll('img');
     var boton = document.querySelector('.Prefer');
     var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
 
     function actualizarContenido(preferenciaActual) {
-        divsConTexto.forEach(p => p.style.display = (preferenciaActual === 'txt') ? 'block' : 'none');
+        divsConTexto.forEach(el => el.style.display = (preferenciaActual === 'txt') ? 'block' : 'none');
         imagenes.forEach(img => img.style.display = (preferenciaActual === 'txt') ? 'none' : 'block');
         boton.textContent = (preferenciaActual === 'txt') ? 'Mostrar imágenes' : 'Mostrar texto';
     }
