@@ -37,3 +37,35 @@ function RestaurarContenidoOriginal() {
         contenidoOriginal = null; // Limpiar la variable para futuras búsquedas
     }
 }
+
+function Contenido() {
+    var texto = document.querySelector('p');
+    var imagenes = document.querySelectorAll('img');
+    var boton = document.querySelector('.Prefer');
+
+    if (texto.style.display === 'none') {
+      texto.style.display = 'block';
+      for (var i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = 'none';
+      }
+      boton.textContent = 'Mostrar imágenes';
+      localStorage.setItem('Prefer', 'texto');
+    } else {
+      texto.style.display = 'none';
+      for (var i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = 'block';
+      }
+      boton.textContent = 'Mostrar texto';
+      localStorage.setItem('Prefer', 'imagenes');
+    }
+}
+  // Cargar preferencia al cargar la página
+  window.onload = function() {
+    var preferencia = localStorage.getItem('Prefer');
+    if (preferencia === 'texto') {
+      Contenido(); // Mostrar texto
+      Contenido(); // Mostrar imágenes (opción predeterminada)
+    } else {
+      Contenido(); // Mostrar imágenes (opción predeterminada)
+    }
+  }
