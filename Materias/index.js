@@ -39,7 +39,7 @@ function RestaurarContenidoOriginal() {
 }
 
 function Contenido() {
-    var divsConTexto = document.querySelectorAll('div > p, div > table');
+    var divsConTexto = document.querySelectorAll('div > p, div > table, div > a');
     var imagenes = document.querySelectorAll('img');
     var boton = document.querySelector('.Prefer');
     var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
