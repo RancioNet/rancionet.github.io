@@ -9,6 +9,10 @@
       "wdth" 100;
 }
 
+div {
+    margin-left: 5%;
+}
+
 img {
     height: 50%;
     width: 50%;
@@ -24,22 +28,17 @@ button {
 }
 
 p {
-    margin-left: 5%;
     text-align: left;
 }
 
 table {
-    margin-left: 5%;
-    float: left;
-    text-align: left;
-    align-items: left;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-table, td, th {
-    border-color: #000;
-    border-style: solid;
-    border-collapse: collapse;
-    border-width: 2px;
-    width: 25%;
+th, td {
+    border: 2px solid black;
     padding: 5px;
+    text-align: left;
+    width: 150px;
 }
