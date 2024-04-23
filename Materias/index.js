@@ -1,33 +1,35 @@
 let contenidoOriginal = null; // Variable global para almacenar el contenido original
 
 function Buscar() {
-    RestaurarContenidoOriginal(); // Restaurar el contenido original al principio de la búsqueda
+    var term = prompt('Ingresa un término de búsqueda:');
+    if (term) {
+        var h1Elements = document.getElementsByTagName('h1');
+        var closestH1 = null;
+        var closestDistance = Number.MAX_VALUE;
+        var found = false;
 
-    const searchTerm = prompt('Ingrese el término de búsqueda:'); // Obtener el término de búsqueda
-    if (!searchTerm) return; // Si no se ingresó un término de búsqueda, salir de la función
+        for (var i = 0; i < h1Elements.length; i++) {
+            h1Elements[i].style.backgroundColor = ''; // Restaurar color original
+            var text = h1Elements[i].textContent.toLowerCase();
+            var termWords = term.toLowerCase().split(' ');
+            var allWordsFound = termWords.every(word => text.includes(word));
+            
+            if (allWordsFound) {
+                h1Elements[i].style.backgroundColor = 'yellow'; // Marcar si coincide
+                var distance = Math.abs(h1Elements[i].offsetTop - window.pageYOffset);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestH1 = h1Elements[i];
+                }
+                found = true;
+            }
+        }
 
-    const divFondo = document.getElementById('fondo');
-    if (!contenidoOriginal) {
-        contenidoOriginal = divFondo.innerHTML; // Almacenar el contenido original solo la primera vez
-    }
-
-    const contenido = divFondo.innerHTML; // Obtener el contenido actual del div "fondo"
-    console.log('Término de búsqueda:', searchTerm);
-    console.log('Contenido original:', contenidoOriginal);
-    console.log('Contenido actual:', contenido);
-
-    const palabrasBusqueda = searchTerm.split(' ').filter(Boolean); // Dividir el término de búsqueda en palabras y eliminar las palabras vacías
-    const searchTermRegex = palabrasBusqueda
-        .map(word => `(?![^<>]*>)\\b${word}\\b`) // Convertir cada palabra en una expresión regular para resaltarla dentro de etiquetas de texto
-        .join('|'); // Unir las expresiones regulares con OR (|)
-    
-    const contenidoResaltado = contenido.replace(new RegExp(searchTermRegex, 'gi'), match => `<span class="highlight">${match}</span>`); // Resaltar todas las ocurrencias de las palabras de búsqueda dentro de etiquetas de texto
-    console.log('Contenido resaltado:', contenidoResaltado);
-
-    if (contenidoResaltado === contenido) {
-        alert('No se encontraron resultados.'); // Mostrar alerta si no se encontraron resultados
-    } else {
-        divFondo.innerHTML = contenidoResaltado; // Actualizar el contenido con las coincidencias resaltadas
+        if (found) {
+            closestH1.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            alert('No se encontraron resultados para el término de búsqueda.');
+        }
     }
 }
 
