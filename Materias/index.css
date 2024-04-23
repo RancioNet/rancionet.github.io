@@ -36,7 +36,7 @@ table {
     width: 100%;
 }
 
-th, td {
+td {
     border: 2px solid black;
     padding: 5px;
     text-align: left;
@@ -45,4 +45,8 @@ th, td {
 
 th {
     text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
 }
