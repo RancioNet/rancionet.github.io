@@ -42,3 +42,7 @@ th, td {
     text-align: left;
     width: 150px;
 }
+
+th {
+    text-align: center;
+}
