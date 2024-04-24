@@ -15,7 +15,7 @@ function Buscar() {
             var allWordsFound = termWords.every(word => text.includes(word));
             
             if (allWordsFound) {
-                h1Elements[i].style.backgroundColor = 'yellow'; // Marcar si coincide
+                h1Elements[i].style.backgroundColor = 'blue'; // Marcar si coincide
                 var distance = Math.abs(h1Elements[i].offsetTop - window.pageYOffset);
                 if (distance < closestDistance) {
                     closestDistance = distance;
