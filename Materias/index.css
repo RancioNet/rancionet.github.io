@@ -32,24 +32,21 @@ p {
     text-align: left;
 }
 
+/* Estilos para la tabla */
 table {
     border-collapse: collapse;
     width: 100%;
 }
 
-td {
+/* Estilos para las celdas de la tabla */
+td, th {
     border: 2px solid black;
     padding: 5px;
     text-align: left;
-    width: 150px;
 }
 
 th {
     text-align: center;
-    border: 2px solid black;
-    padding: 5px;
-    text-align: center;
-    width: 150px;
 }
 
 h1 {
