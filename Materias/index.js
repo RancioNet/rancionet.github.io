@@ -28,7 +28,7 @@ function Buscar() {
         if (found) {
             setTimeout(function() {
                 closestH1.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 200); // 1000 milisegundos = 1 segundo
+            }, 200); // 200 milisegundos = 0.2 segundos
         } else {
             alert('No se encontraron resultados para el término de búsqueda.');
         }
