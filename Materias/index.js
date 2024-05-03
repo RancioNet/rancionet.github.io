@@ -66,3 +66,14 @@ function Contenido() {
 window.onload = function() {
     Contenido();
 }
+
+function MostrarInfo(idObjeto) {
+    var objeto = document.getElementById(idObjeto);
+
+    if (objeto.style.display === "none" || objeto.style.display === "") {
+        objeto.style.display = "block";
+        window.location.href = "#" + idObjeto;
+    } else {
+        objeto.style.display = "none";
+    }
+}

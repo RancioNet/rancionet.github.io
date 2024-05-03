@@ -52,3 +52,7 @@ th {
 h1 {
     background-color: #f00;
 }
+
+ul, li, b {
+    text-align: left;
+}
