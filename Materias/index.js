@@ -67,18 +67,18 @@ window.onload = function() {
     Contenido();
 }
 
-function MostrarInfo(idObjeto) {
+function MostrarInfo(idObjeto, idBoton) {
     var objeto = document.getElementById(idObjeto);
-    var boton = document.getElementById('botonMostrar');
-    var textoBotonMostrar = "Mostrar " + objeto.innerHTML;
-    var textoBotonOcultar = "Ocultar " + objeto.innerHTML;
+    var boton = document.getElementById(idBoton);
+    var textoBoton = boton.textContent.trim(); // Eliminar espacios al inicio y al final
 
     if (objeto.style.display === "none" || objeto.style.display === "") {
         objeto.style.display = "block";
         window.location.href = "#" + idObjeto;
-        boton.textContent = textoBotonOcultar;
+        boton.textContent = "Ocultar " + textoBoton.substring(8); // Eliminar "Mostrar "
     } else {
         objeto.style.display = "none";
-        boton.textContent = textoBotonMostrar;
+        boton.textContent = "Mostrar " + textoBoton.substring(8); // Eliminar "Ocultar "
     }
 }
+
