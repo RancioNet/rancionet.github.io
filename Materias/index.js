@@ -69,11 +69,16 @@ window.onload = function() {
 
 function MostrarInfo(idObjeto) {
     var objeto = document.getElementById(idObjeto);
+    var boton = document.getElementById('botonMostrar');
+    var textoBotonMostrar = "Mostrar " + objeto.innerHTML;
+    var textoBotonOcultar = "Ocultar " + objeto.innerHTML;
 
     if (objeto.style.display === "none" || objeto.style.display === "") {
         objeto.style.display = "block";
         window.location.href = "#" + idObjeto;
+        boton.textContent = textoBotonOcultar;
     } else {
         objeto.style.display = "none";
+        boton.textContent = textoBotonMostrar;
     }
 }
