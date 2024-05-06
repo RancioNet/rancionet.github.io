@@ -15,7 +15,7 @@
 <body> <center>
     <button onclick="Buscar()">Buscar</button>
     <button onclick="Contenido()" class="Prefer">Mostrar imágenes</button>
-<div>
+<div id="inicio" onscroll="Scroll(abajo)">
 	<h1>19 de abril (19/4)</h1>
     <a href="../Archivos/19-4-24/matematicas.docx">Descargar .docx (Archivo Word)</a>
     <img src="../Archivos/19-4-24/5.jpeg" alt="Error al cargar, cambia a texto">
@@ -44,6 +44,7 @@
         </tr>
       </table>
     </p>
+	<img src="../Archivos/Flecha-Abajo.png" class="ScrollIMG" onclick="Scroll('arriba')">
 </div>
 
 <div>
@@ -229,5 +230,7 @@ B) ¿Hay una sola posibilidad?
 		</table>
 	</p>
 </div>
+
+	<img src="../Archivos/Flecha-Arriba.png" class="ScrollIMG" onclick="Scroll('abajo')">
 </body>
 </html>

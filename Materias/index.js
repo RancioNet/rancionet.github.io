@@ -44,7 +44,7 @@ function RestaurarContenidoOriginal() {
 
 function Contenido() {
     var divsConTexto = document.querySelectorAll('div > p, div > table, div > a');
-    var imagenes = document.querySelectorAll('img');
+    var imagenes = document.querySelectorAll('img:not(.ScrollIMG)');
     var boton = document.querySelector('.Prefer');
     var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
 
@@ -82,3 +82,14 @@ function MostrarInfo(idObjeto, idBoton) {
     }
 }
 
+function Scroll(direccion) {
+    const inicio = document.getElementById('inicio')
+    const fondo = document.getElementById('fondo')
+
+    if(direccion == 'arriba') {
+        document.getElementById('fondo').scrollIntoView({ behavior: 'smooth' });
+    }
+    else if(direccion == 'abajo') {
+        document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
+    }
+}
