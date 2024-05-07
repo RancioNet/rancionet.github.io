@@ -66,6 +66,7 @@ function Contenido() {
 
 window.onload = function() {
     Contenido();
+    window.location.reload(true);
 }
 
 function MostrarInfo(idObjeto, idBoton) {
