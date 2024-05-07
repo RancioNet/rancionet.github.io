@@ -43,8 +43,8 @@ function RestaurarContenidoOriginal() {
 }
 
 function Contenido() {
-    var divsConTexto = document.querySelectorAll('div > p, div > table, div > a');
-    var imagenes = document.querySelectorAll('img:not(.ScrollIMG)');
+    var divsConTexto = document.querySelectorAll('div > p, div > table, div > a, p > img');
+    var imagenes = document.querySelectorAll('img:not(.NoDisapear, .ScrollIMG)');
     var boton = document.querySelector('.Prefer');
     var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
 
@@ -62,6 +62,7 @@ function Contenido() {
         actualizarContenido(preferencia);
     });
 }
+
 
 window.onload = function() {
     Contenido();
