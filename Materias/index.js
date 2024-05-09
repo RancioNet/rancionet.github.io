@@ -63,14 +63,6 @@ function Contenido() {
     });
 }
 
-
-window.onload = function() {
-    Contenido(); // Ejecuta la función Contenido al cargar la página
-    setTimeout(function() {
-        window.location.reload(true); // Recarga la página después de 1 hora y 30 minutos (90 minutos)
-    }, 90 * 60 * 1000); // 90 minutos * 60 segundos/minuto * 1000 milisegundos/segundo
-}
-
 function MostrarInfo(idObjeto, idBoton) {
     var objeto = document.getElementById(idObjeto);
     var boton = document.getElementById(idBoton);
@@ -87,6 +79,8 @@ function MostrarInfo(idObjeto, idBoton) {
 }
 
 function Scroll(direccion) {
+    DivFondo();
+
     const inicio = document.getElementById('inicio')
     const fondo = document.getElementById('fondo')
 
@@ -96,4 +90,45 @@ function Scroll(direccion) {
     else if(direccion == 'abajo') {
         document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
     }
+}
+
+function DivFondo() {
+    let divs = document.getElementsByTagName('div');
+
+    if (divs.length > 0) {
+        let ultimoDiv = divs[divs.length - 1];
+
+        // Verificar si el último div ya tiene un ID
+        if (!ultimoDiv.id || ultimoDiv.id.trim() === '') {
+            ultimoDiv.setAttribute('id', 'fondo');
+            console.log('Se estableció el ID "fondo" en el último div.');
+        } else {
+            if (ultimoDiv.id !== 'adsbox') {
+                console.log('El último div ya tiene un ID:', ultimoDiv.id);
+            }
+        }
+    } else {
+        console.log('No se encontraron divs en la página.');
+    }
+}
+
+function Google() {
+    // Obtener el elemento div por su ID
+let divElement = document.getElementById('GOOGLE_INPUT_CHEXT_FLAG');
+
+// Verificar si el elemento existe antes de intentar eliminarlo
+if (divElement) {
+    // Eliminar el elemento div
+    divElement.remove();
+} else {
+    console.log('El elemento div con ID "GOOGLE_INPUT_CHEXT_FLAG" no se encontró.');
+}
+}
+
+window.onload = function() {
+    Google();
+    Contenido(); // Ejecuta la función Contenido al cargar la página
+    setTimeout(function() {
+        window.location.reload(true); // Recarga la página después de 1 hora y 30 minutos (90 minutos)
+    }, 90 * 60 * 1000); // 90 minutos * 60 segundos/minuto * 1000 milisegundos/segundo
 }
