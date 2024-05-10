@@ -79,8 +79,6 @@ function MostrarInfo(idObjeto, idBoton) {
 }
 
 function Scroll(direccion) {
-    DivFondo();
-
     const inicio = document.getElementById('inicio')
     const fondo = document.getElementById('fondo')
 
