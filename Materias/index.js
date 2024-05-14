@@ -42,27 +42,6 @@ function RestaurarContenidoOriginal() {
     }
 }
 
-function Contenido() {
-    var divsConTexto = document.querySelectorAll('div > p, div > table, div > a, p > img');
-    var imagenes = document.querySelectorAll('img:not(.NoDisapear, .ScrollIMG)');
-    var boton = document.querySelector('.Prefer');
-    var preferencia = localStorage.getItem('Prefer') || 'img'; // Establecer preferencia por defecto
-
-    function actualizarContenido(preferenciaActual) {
-        divsConTexto.forEach(el => el.style.display = (preferenciaActual === 'txt') ? 'block' : 'none');
-        imagenes.forEach(img => img.style.display = (preferenciaActual === 'txt') ? 'none' : 'block');
-        boton.textContent = (preferenciaActual === 'txt') ? 'Mostrar imágenes' : 'Mostrar texto';
-    }
-
-    actualizarContenido(preferencia);
-
-    boton.addEventListener('mousedown', function() {
-        preferencia = (preferencia === 'txt') ? 'img' : 'txt';
-        localStorage.setItem('Prefer', preferencia);
-        actualizarContenido(preferencia);
-    });
-}
-
 function MostrarInfo(idObjeto, idBoton) {
     var objeto = document.getElementById(idObjeto);
     var boton = document.getElementById(idBoton);
