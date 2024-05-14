@@ -68,11 +68,3 @@ function Scroll(direccion) {
         document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
     }
 }
-
-window.onload = function() {
-    Contenido(); // Ejecuta la función Contenido al cargar la página
-    
-    setTimeout(function() {
-        window.location.reload(true); // Recarga la página después de 1 hora y 30 minutos (90 minutos)
-    }, 90 * 60 * 1000); // 90 minutos * 60 segundos/minuto * 1000 milisegundos/segundo
-}
