@@ -68,7 +68,7 @@ ul, li, b {
     border-radius: 5px;
 }
 
-.NoDisapear {
+img:not(.ScrollIMG) {
     width: 150px;
     height: 150px;
 }
