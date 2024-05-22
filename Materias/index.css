@@ -17,7 +17,6 @@ div {
 img {
     height: 50%;
     width: 50%;
-    display: block;
 }
 
 button {
@@ -71,4 +70,17 @@ ul, li, b {
 img:not(.ScrollIMG) {
     width: 150px;
     height: 150px;
+}
+
+section {
+    display: flex;
+}
+
+.colaborador {
+    height: 15%;
+    width: 15%;
+}
+
+h2 span {
+    color: blue;
 }
