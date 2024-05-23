@@ -11,7 +11,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
             background: white;
             padding: 20px;
@@ -20,6 +20,7 @@
         }
         textarea {
             width: calc(100% - 20px); /* El margen a la derecha será de 10px */
+            max-width: calc(100% - 20px);
             height: 100px;
             margin: 10px 0;
             padding: 10px;
@@ -49,9 +50,9 @@
     <div class="container">
         <h1>Traductor Mystique</h1>
         <textarea id="inputText" placeholder="Introduce el texto a traducir..."></textarea>
-        <button onclick="translateText()">Traducir al Mystique</button>
+        <button onclick="translateToMystique()">Traducir al Mystique</button>
         <br><br>
-        <button onclick="translateTextReverse()">Traducir al Abecedario Normal</button>
+        <button onclick="translateToNormal()">Traducir al Abecedario Normal</button>
         <div class="output" id="outputText"></div>
     </div>
     <script src="traductor.js"></script>
