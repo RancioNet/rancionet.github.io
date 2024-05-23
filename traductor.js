@@ -4,8 +4,8 @@ function translate() {
     const inputText = document.getElementById('inputText').value;
     const outputText = document.getElementById('outputText');
     
-    const normalAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const mystiqueAlphabet = 'CDEFGHIJKLMNOPQRSTUVWXYZAB';
+    const normalAlphabet = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+    const mystiqueAlphabet = 'CDEFGHIJKLMNÑOPQRSTUVWXYZAB';
     
     const specialChars = ['?', '!', '¿', '¡']; // Caracteres especiales para invertir
     
