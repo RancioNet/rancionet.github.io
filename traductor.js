@@ -71,12 +71,12 @@ function translate() {
     outputText.textContent = translatedNormalText;
 }
 
-function translateToMystique() {
+function translateToNormal() {
     toMystiqueAlphabet = true;
     translate();
 }
 
-function translateToNormal() {
+function translateToMystique() {
     toMystiqueAlphabet = false;
     translate();
 }
