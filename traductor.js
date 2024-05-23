@@ -27,19 +27,23 @@ function translate() {
     // Traducir caracteres normales
     let translatedNormalText = '';
     for (let i = 0; i < translatedText.length; i++) {
-        let char = translatedText[i].toUpperCase();
+        let char = translatedText[i];
+        let isLowerCase = char === char.toLowerCase();
+        let upperChar = char.toUpperCase();
         let index;
         if (toMystiqueAlphabet) {
-            index = normalAlphabet.indexOf(char);
+            index = normalAlphabet.indexOf(upperChar);
             if (index !== -1) {
-                translatedNormalText += mystiqueAlphabet[index];
+                let translatedChar = mystiqueAlphabet[index];
+                translatedNormalText += isLowerCase ? translatedChar.toLowerCase() : translatedChar;
             } else {
                 translatedNormalText += char;
             }
         } else {
-            index = mystiqueAlphabet.indexOf(char);
+            index = mystiqueAlphabet.indexOf(upperChar);
             if (index !== -1) {
-                translatedNormalText += normalAlphabet[index];
+                let translatedChar = normalAlphabet[index];
+                translatedNormalText += isLowerCase ? translatedChar.toLowerCase() : translatedChar;
             } else {
                 translatedNormalText += char;
             }
@@ -71,12 +75,12 @@ function translate() {
     outputText.textContent = translatedNormalText;
 }
 
-function translateToNormal() {
+function translateToMystique() {
     toMystiqueAlphabet = true;
     translate();
 }
 
-function translateToMystique() {
+function translateToNormal() {
     toMystiqueAlphabet = false;
     translate();
 }
