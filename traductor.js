@@ -84,3 +84,14 @@ function translateToNormal() {
     toMystiqueAlphabet = false;
     translate();
 }
+
+function copyText() {
+    const outputText = document.getElementById('outputText');
+    const textArea = document.createElement('textarea');
+    textArea.textContent = outputText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('Texto copiado al portapapeles');
+}
