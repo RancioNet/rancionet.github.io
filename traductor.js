@@ -93,5 +93,8 @@ function copyText() {
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    alert('Texto copiado al portapapeles');
+    document.getElementById('Copy').style = "display: content;";
+    setTimeout(function() {
+        document.getElementById('Copy').style = "display: none;";
+    }, 2500)
 }
