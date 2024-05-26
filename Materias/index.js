@@ -49,7 +49,7 @@ function MostrarInfo(idObjeto, idBoton) {
 
     if (objeto.style.display === "none" || objeto.style.display === "") {
         objeto.style.display = "block";
-        window.location.href = "#" + idObjeto;
+        document.getElementById(idBoton).scrollIntoView({ behavior: 'smooth' });
         boton.textContent = "Ocultar " + textoBoton.substring(8); // Eliminar "Mostrar "
     } else {
         objeto.style.display = "none";
@@ -57,14 +57,6 @@ function MostrarInfo(idObjeto, idBoton) {
     }
 }
 
-function Scroll(direccion) {
-    const inicio = document.getElementById('inicio')
-    const fondo = document.getElementById('fondo')
-
-    if(direccion == 'arriba') {
-        document.getElementById('fondo').scrollIntoView({ behavior: 'smooth' });
-    }
-    else if(direccion == 'abajo') {
-        document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
-    }
+function Scroll(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
