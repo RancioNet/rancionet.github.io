@@ -68,17 +68,11 @@ ul, li, b {
 }
 
 img:not(.ScrollIMG) {
-    width: 150px;
-    height: 150px;
+    max-width: 250px;
 }
 
 section {
     display: flex;
-}
-
-.colaborador {
-    height: 15%;
-    width: 15%;
 }
 
 h2 span {
