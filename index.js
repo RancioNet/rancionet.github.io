@@ -1,4 +1,4 @@
-function Download() {
+function InAPP() {
     var elemento = document.getElementById("down");
     
     // Verificar si el elemento existe

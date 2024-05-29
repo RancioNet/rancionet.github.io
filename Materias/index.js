@@ -60,3 +60,15 @@ function MostrarInfo(idObjeto, idBoton) {
 function Scroll(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
+
+function InAPP() {
+    var elemento = document.getElementById("down");
+    
+    // Verificar si el elemento existe
+    if (elemento) {
+        // Eliminar el elemento
+        elemento.parentNode.removeChild(elemento);
+    } else {
+        console.log("El elemento con id 'down' no se encontró.");
+    }
+}
