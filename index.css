@@ -23,3 +23,15 @@ button {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+#appActualizacion {
+    display: none;
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    color: #f00;
+    background-color: #fff;
+    font-size: 200%;
+}
