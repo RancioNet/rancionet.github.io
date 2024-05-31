@@ -74,3 +74,16 @@ img:not(.ScrollIMG) {
 h2 span {
     color: blue;
 }
+
+/* Estilos para el html */
+.subrayado {
+    text-decoration: solid;
+}
+
+.rojo {
+    color: red;
+}
+
+.azul {
+    color: blue;
+}

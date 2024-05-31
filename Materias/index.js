@@ -60,3 +60,10 @@ function MostrarInfo(idObjeto, idBoton) {
 function Scroll(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
+
+function Tamaño(id, height, width) {
+    var Elemento = getElementById(id);
+
+    Elemento.style.height = height;
+    Elemento.style.width = width;
+}
