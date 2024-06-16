@@ -10,10 +10,6 @@ function InAPP(versionCliente) {
         Elemento.parentNode.removeChild(Elemento);
         console.log("Versión correcta");
     } else {
-        console.log("Versión incorrecta");
-        // Evitar el scroll
-        document.body.style.overflow = 'hidden';
-        // Mostrar el div de actualización
-        Download.style.display = 'flex';      
+        window.location.href = '/';
     }
 }
