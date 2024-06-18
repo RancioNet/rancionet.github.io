@@ -3,7 +3,8 @@ function Time(timestamp) {
     timestamp = timestamp * 1000;
 
     // Obtener la fecha actual
-    const today = new Date();
+    const now = new Date();
+    const today = new Date(now);
     today.setHours(0, 0, 0, 0);
 
     // Obtener la fecha de ayer
@@ -12,10 +13,11 @@ function Time(timestamp) {
 
     // Convertir el timestamp a una fecha
     const date = new Date(timestamp);
-    date.setHours(0, 0, 0, 0);
 
-    // Calcular la diferencia en días
-    const diffTime = Math.abs(today - date);
+    // Calcular la diferencia en milisegundos
+    const diffTime = now - date;
+    const diffMinutes = Math.floor(diffTime / (1000 * 60));
+    const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     // Nombres de los días de la semana en español
@@ -24,9 +26,13 @@ function Time(timestamp) {
 
     // Comparar la fecha del timestamp con hoy y ayer
     let formattedDate;
-    if (date.getTime() === today.getTime()) {
-        formattedDate = 'Hoy';
-    } else if (date.getTime() === yesterday.getTime()) {
+    if (date >= today) {
+        if (diffHours < 1) {
+            formattedDate = `Hace ${diffMinutes} minutos`;
+        } else {
+            formattedDate = `Hace ${diffHours} horas`;
+        }
+    } else if (date >= yesterday) {
         formattedDate = 'Ayer';
     } else {
         // Formatear la fecha como "Hace X días (Nombre del día de la semana)"
