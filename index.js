@@ -21,8 +21,8 @@ function Time(timestamp) {
     const Days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     // Nombres de los días de la semana en español
-    const daysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-    const dayOfWeek = daysOfWeek[date.getUTCDay()];
+    const DaysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    const Day = DaysOfWeek[date.getUTCDay()];
 
     // Comparar la fecha del timestamp con hoy y ayer
     let formattedDate;
@@ -35,9 +35,9 @@ function Time(timestamp) {
     } else if(Hours > 1 && Hours < 24) {
         formattedDate = `Hace ${Hours} horas`;
     } else if(Days == 1) {
-        formattedDate = `Hace un día`;
+        formattedDate = `Hace un día (${Day})`;
     } else if(Days > 1) {
-        formattedDate = `Hace ${Days} días`;
+        formattedDate = `Hace ${Days} días (${Day})`;
     }
 
     // Actualizar el contenido del elemento <span> con el id "Time"
