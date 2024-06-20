@@ -3,19 +3,13 @@ function Time(timestamp) {
     timestamp = timestamp * 1000;
 
     // Obtener la fecha actual
-    const now = new Date();
-    const hoy = new Date(now);
-    hoy.setHours(0, 0, 0, 0);
-
-    // Obtener la fecha de ayer
-    const ayer = new Date(hoy);
-    ayer.setDate(ayer.getDate() - 1);
+    const ahora = new Date();
 
     // Convertir el timestamp a una fecha
     const date = new Date(timestamp);
 
     // Calcular la diferencia en milisegundos
-    const diffTime = now - date;
+    const diffTime = ahora - date;
     const Minutes = Math.floor(diffTime / (1000 * 60));
     const Hours = Math.floor(diffTime / (1000 * 60 * 60));
     const Days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -24,7 +18,7 @@ function Time(timestamp) {
     const DaysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     const Day = DaysOfWeek[date.getUTCDay()];
 
-    // Comparar la fecha del timestamp con hoy y ayer
+    // Comparar la fecha del timestamp
     let formattedDate;
     if(Minutes < 1) {
         formattedDate = `Hace menos de un minuto`;
