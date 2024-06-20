@@ -4,21 +4,21 @@ function Time(timestamp) {
 
     // Obtener la fecha actual
     const now = new Date();
-    const today = new Date(now);
-    today.setHours(0, 0, 0, 0);
+    const hoy = new Date(now);
+    hoy.setHours(0, 0, 0, 0);
 
     // Obtener la fecha de ayer
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
+    const ayer = new Date(hoy);
+    ayer.setDate(ayer.getDate() - 1);
 
     // Convertir el timestamp a una fecha
     const date = new Date(timestamp);
 
     // Calcular la diferencia en milisegundos
     const diffTime = now - date;
-    const diffMinutes = Math.floor(diffTime / (1000 * 60));
-    const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const Minutes = Math.floor(diffTime / (1000 * 60));
+    const Hours = Math.floor(diffTime / (1000 * 60 * 60));
+    const Days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     // Nombres de los días de la semana en español
     const daysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -26,17 +26,18 @@ function Time(timestamp) {
 
     // Comparar la fecha del timestamp con hoy y ayer
     let formattedDate;
-    if (date >= today) {
-        if (diffHours < 1) {
-            formattedDate = `Hace ${diffMinutes} minutos`;
-        } else {
-            formattedDate = `Hace ${diffHours} horas`;
-        }
-    } else if (date >= yesterday) {
-        formattedDate = 'Ayer';
-    } else {
-        // Formatear la fecha como "Hace X días (Nombre del día de la semana)"
-        formattedDate = `Hace ${diffDays} días (${dayOfWeek})`;
+    if(Minutes < 1) {
+        formattedDate = `Hace menos de un minuto`;
+    } else if(Minutes > 1 && Minutes < 60) {
+        formattedDate = `Hace ${Minutes} minutos`;
+    } else if(Hours == 1) {
+        formattedDate = `Hace una hora`;
+    } else if(Hours > 1 && Hours < 24) {
+        formattedDate = `Hace ${Hours} horas`;
+    } else if(Days == 1) {
+        formattedDate = `Hace un día`;
+    } else if(Days > 1) {
+        formattedDate = `Hace ${Days} días`;
     }
 
     // Actualizar el contenido del elemento <span> con el id "Time"
