@@ -57,8 +57,8 @@ function MostrarInfo(idObjeto, idBoton) {
     }
 }
 
-function Scroll(elemento) {
-    document.querySelector(elemento).scrollIntoView({ behavior: 'smooth' });
+function Scroll(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
 function Tamaño(id, height, width) {
