@@ -2,17 +2,18 @@ function Time(timestamp) {
     // Convertir el timestamp de segundos a milisegundos
     timestamp = timestamp * 1000;
 
-    // Obtener la fecha actual
-    const ahora = new Date();
+    // Obtener la fecha actual y ajustar a GMT-3
+    const ahora = new Date(new Date().getTime() - 3 * 60 * 60 * 1000);
 
-    // Convertir el timestamp a una fecha
-    const date = new Date(timestamp);
+    // Convertir el timestamp a una fecha y ajustar a GMT-3
+    const date = new Date(timestamp - 3 * 60 * 60 * 1000);
 
     // Calcular la diferencia en milisegundos
     const diffTime = ahora - date;
     const Minutes = Math.floor(diffTime / (1000 * 60));
     const Hours = Math.floor(diffTime / (1000 * 60 * 60));
-    const Days = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const Days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const RemainingHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
     // Nombres de los días de la semana en español
     const DaysOfWeek = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -20,22 +21,39 @@ function Time(timestamp) {
 
     // Comparar la fecha del timestamp
     let formattedDate;
-    if(Minutes < 1) {
+    if (Minutes < 1) {
         formattedDate = `Hace menos de un minuto`;
-    } else if(Minutes > 1 && Minutes < 60) {
+    } else if (Minutes >= 1 && Minutes < 60) {
         formattedDate = `Hace ${Minutes} minutos`;
-    } else if(Hours == 1) {
+    } else if (Hours === 1) {
         formattedDate = `Hace una hora`;
-    } else if(Hours > 1 && Hours < 24) {
+    } else if (Hours > 1 && Hours < 24) {
         formattedDate = `Hace ${Hours} horas`;
-    } else if(Days == 1) {
-        formattedDate = `Hace un día (${Day})`;
-    } else if(Days > 1) {
-        formattedDate = `Hace ${Days} días (${Day})`;
+    } else if (Days === 1) {
+        if (RemainingHours === 1) {
+            formattedDate = `Hace un día y una hora (${Day})`;
+        } else if (RemainingHours > 1) {
+            formattedDate = `Hace un día y ${RemainingHours} horas (${Day})`;
+        } else {
+            formattedDate = `Hace un día (${Day})`;
+        }
+    } else if (Days > 1) {
+        if (RemainingHours === 1) {
+            formattedDate = `Hace ${Days} días y una hora (${Day})`;
+        } else if (RemainingHours > 1) {
+            formattedDate = `Hace ${Days} días y ${RemainingHours} horas (${Day})`;
+        } else {
+            formattedDate = `Hace ${Days} días (${Day})`;
+        }
     }
 
     // Actualizar el contenido del elemento <span> con el id "Time"
-    document.getElementById('Time').innerText = formattedDate;
+    const spanElement = document.getElementById('Time');
+    if (spanElement) {
+        spanElement.innerText = formattedDate;
+    } else {
+        console.error('El elemento span con el id "Time" no se encontró en el documento.');
+    }
 }
 
 window.onload = function() {
