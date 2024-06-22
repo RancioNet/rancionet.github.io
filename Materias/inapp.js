@@ -5,7 +5,7 @@ function InAPP(versionCliente) {
     if (Elemento && versionCliente === versionNecesaria) {
         // Eliminar el elemento
         Elemento.parentNode.removeChild(Elemento);
-        console.log("Versión correcta");
+        console.log('Versión correcta');
     } else {
         window.location.href = '/';
     }
