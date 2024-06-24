@@ -23,22 +23,24 @@ function Time(timestamp) {
     let formattedDate;
     if (Minutes < 1) {
         formattedDate = `Hace menos de un minuto`;
-    } else if (Minutes >= 1 && Minutes < 60) {
+    } else if(Minutes == 1) {
+        formattedDate = `Hace un minuto`;
+    } else if(Minutes > 1 && Minutes < 60) {
         formattedDate = `Hace ${Minutes} minutos`;
-    } else if (Hours === 1) {
+    } else if(Hours == 1) {
         formattedDate = `Hace una hora`;
-    } else if (Hours > 1 && Hours < 24) {
+    } else if(Hours > 1 && Hours < 24) {
         formattedDate = `Hace ${Hours} horas`;
-    } else if (Days === 1) {
+    } else if(Days == 1) {
         if (RemainingHours === 1) {
             formattedDate = `Hace un día y una hora (${Day})`;
-        } else if (RemainingHours > 1) {
+        } else if(RemainingHours > 1) {
             formattedDate = `Hace un día y ${RemainingHours} horas (${Day})`;
         } else {
             formattedDate = `Hace un día (${Day})`;
         }
     } else if (Days > 1) {
-        if (RemainingHours === 1) {
+        if (RemainingHours == 1) {
             formattedDate = `Hace ${Days} días y una hora (${Day})`;
         } else if (RemainingHours > 1) {
             formattedDate = `Hace ${Days} días y ${RemainingHours} horas (${Day})`;
@@ -57,5 +59,5 @@ function Time(timestamp) {
 }
 
 window.onload = function() {
-    Time(1719247800);
+    Time(1719247980);
 }
