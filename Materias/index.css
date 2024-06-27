@@ -69,10 +69,16 @@ ul, li, b {
 
 img:not(.ScrollIMG) {
     max-width: 250px;
+    width: auto;
 }
 
 h2 span {
     color: blue;
+}
+
+iframe {
+    width: auto;
+    height: auto;
 }
 
 /* Estilos para el html */
