@@ -67,3 +67,13 @@ function Tamaño(id, height, width) {
     Elemento.style.height = height;
     Elemento.style.width = width;
 }
+
+function Posicion() {
+    if (window.location.href.endsWith('?fondo')) {
+        setTimeout(() => {
+            document.getElementById('fondo').scrollIntoView({ behavior: 'smooth' });
+        }, 160);
+    }
+}
+
+window.onload = Posicion();

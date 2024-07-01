@@ -11,12 +11,15 @@
 
 div {
     margin-left: 2%;
-    margin-right: auto;
+    margin-right: 2%;
 }
 
-img {
+img:not(.ScrollIMG) {
     height: 50%;
     width: 50%;
+
+    max-width: 250px;
+    width: 98%;
 }
 
 button {
@@ -65,11 +68,6 @@ ul, li, b {
     height: 30px;
     border: 1px solid black;
     border-radius: 5px;
-}
-
-img:not(.ScrollIMG) {
-    max-width: 250px;
-    width: auto;
 }
 
 h2 span {
