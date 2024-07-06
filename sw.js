@@ -1,9 +1,15 @@
-const CACHE_NAME = 'traductor-cache-v1';
-const urlsToCache = [
-    'traductor.html',
-    'traductor.js',
-    'traductor.css',  // Añade aquí tus archivos CSS si tienes alguno
-    // Añade aquí otras rutas de recursos que necesites almacenar en caché
+// Sin internet
+    const CACHE_NAME = 'traductor-cache-v1';
+    const urlsToCache = [
+    '/Traductor',
+    '/Archivos',
+    '/Materias',
+    '/404',
+    '404.html',
+    '/index.html',
+    'index.css',
+    'index.js',
+    'timestamp.js',
 ];
 
 self.addEventListener('install', function(event) {
