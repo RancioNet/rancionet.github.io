@@ -5,11 +5,11 @@
     '/Archivos',
     '/Materias',
     '/404',
-    '404.html',
+    '/404.html',
     '/index.html',
-    'index.css',
-    'index.js',
-    'timestamp.js',
+    '/index.css',
+    '/index.js',
+    '/timestamp.js',
 ];
 
 self.addEventListener('install', function(event) {
