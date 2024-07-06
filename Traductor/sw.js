@@ -1,15 +1,6 @@
-// Sin internet
-    const CACHE_NAME = 'traductor-cache-v1';
-    const urlsToCache = [
-    '/Traductor',
-    '/Archivos',
-    '/Materias',
-    '/404',
-    '/404.html',
-    '/index.html',
-    '/index.css',
-    '/index.js',
-    '/timestamp.js',
+const CACHE_NAME = 'traductor-cache-v1';
+const urlsToCache = [
+    '/Traductor/', // Añade esta línea si quieres cachear la ruta base
 ];
 
 self.addEventListener('install', function(event) {

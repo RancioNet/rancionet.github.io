@@ -2,7 +2,7 @@ function InAPP(versionCliente) {
     var Elemento = document.getElementById('down');
     var Download = document.getElementById('appActualizacion');
 
-    var versionNecesaria = '6/7/24';
+    var versionNecesaria = '16/6/24';
     if(versionCliente == '' || versionCliente == null) {
         location.reload();
     } else {
