@@ -1,9 +1,8 @@
 const CACHE_NAME = 'traductor-cache-v1';
 const urlsToCache = [
-    '/Traductor/', // Añade esta línea si quieres cachear la ruta base
-    '/Traductor/traductor.html',
-    '/Traductor/traductor.js',
-    '/Traductor/styles.css',  // Añade aquí tus archivos CSS si tienes alguno
+    'traductor.html',
+    'traductor.js',
+    'traductor.css',  // Añade aquí tus archivos CSS si tienes alguno
     // Añade aquí otras rutas de recursos que necesites almacenar en caché
 ];
 
