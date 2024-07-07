@@ -9,18 +9,26 @@
 <body>
     <div class="container">
         <h1>Traductor Mystique</h1>
-        <textarea id="inputText" placeholder="Introduce el texto a traducir..."></textarea>
-        <button onclick="translateToMystique()">Traducir al Mystique</button>
+        <textarea id="inputText" placeholder="Introduce el texto a traducir..." oninput="toggleButtons()"></textarea>
+        <button id="translateToMystiqueBtn" onclick="translateToMystique()" disabled>Traducir al Mystique</button>
         <br><br>
-        <button onclick="translateToNormal()">Traducir al Abecedario Normal</button>
+        <button id="translateToNormalBtn" onclick="translateToNormal()" disabled>Traducir al Abecedario Normal</button>
         <div class="output" id="outputText"></div>
+        <div id="pronunciationContainer" style="display: none;">
+            <h2>Pronunciación</h2>
+            <div id="pronunciationText" class="output"></div>
+            <br>
+            <button id="copyPronunciationBtn" onclick="copyPronunciation()" disabled>Copiar Pronunciación</button> <span id="PronunciationCopy" style="display: none;">¡Copiado!</span>
+        </div>
         <br>
-        <button onclick="copyText()">Copiar Resultado</button> <span id="Copy" style="display: none;">¡Copiado!</span>
+        <button id="copyOutputBtn" onclick="copyText()" disabled>Copiar Resultado</button> <span id="Copy" style="display: none;">¡Copiado!</span>
+        <br><br>
+        <button onclick="clearText()">Limpiar Texto</button>
     </div>
     <script src="traductor.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').then(function(registration) {
+            navigator.serviceWorker.register('/Traductor/sw.js').then(function(registration) {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
             }, function(error) {
                 console.log('ServiceWorker registration failed: ', error);
