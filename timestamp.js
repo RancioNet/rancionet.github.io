@@ -30,7 +30,7 @@ function Time(timestamp) {
     } else if(Hours == 1) {
         formattedDate = `Hace una hora`;
     } else if(Hours > 1 && Hours < 24) {
-        formattedDate = `Hace ${Hours} horas`;
+        formattedDate = `Hace ${Hours} horas (${Day})`;
     } else if(Days == 1) {
         if (RemainingHours === 1) {
             formattedDate = `Hace un día y una hora (${Day})`;
@@ -59,5 +59,5 @@ function Time(timestamp) {
 }
 
 window.onload = function() {
-    Time(1720135080);
+    Time(1720187880);
 }
