@@ -40,3 +40,6 @@ button:hover {
 #clearText {
     background-color: #f00;
 }
+#clearText:hover {
+    background-color: #b30000;
+}
