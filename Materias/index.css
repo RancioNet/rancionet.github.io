@@ -19,7 +19,6 @@ img:not(.ScrollIMG) {
     width: 50%;
 
     max-width: 250px;
-    width: 98%;
 }
 
 button {
