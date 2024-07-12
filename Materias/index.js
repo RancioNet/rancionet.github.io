@@ -1,7 +1,7 @@
 let contenidoOriginal = null; // Variable global para almacenar el contenido original
 
 function Buscar() {
-    var term = prompt('Ingresa un término de búsqueda:');
+    var term = prompt('Ingresa un término de búsqueda: (Ejemplo: 19/4)');
     if (term) {
         var h1Elements = document.getElementsByTagName('h1');
         var closestH1 = null;
