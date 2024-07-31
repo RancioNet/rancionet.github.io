@@ -29,10 +29,6 @@ button {
     background-color: yellow;
 }
 
-p {
-    text-align: left;
-}
-
 /* Estilos para la tabla */
 table {
     border-collapse: collapse;
@@ -77,6 +73,11 @@ iframe {
     width: auto;
     height: auto;
 }
+
+p {
+    text-align: left;
+}
+
 
 /* Estilos para el html */
 .subrayado {
