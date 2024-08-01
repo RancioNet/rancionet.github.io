@@ -9,30 +9,42 @@
       "wdth" 100;
 }
 
+/* Centrar div y button */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 div {
+    width: 96%;
     margin-left: 2%;
     margin-right: 2%;
 }
 
-img:not(.ScrollIMG) {
-    height: 50%;
-    width: 50%;
-
-    max-width: 250px;
+/* Centrar h1 y a dentro del div */
+div > h1, 
+div > a {
+    text-align: center;
+    display: block;
 }
 
 button {
     font-size: 50px;
 }
 
-.highlight {
-    background-color: yellow;
+/* Alinear el contenido de los divs a la izquierda */
+div > p, 
+div > table {
+    margin-left: 0;
+    text-align: left;
 }
 
 /* Estilos para la tabla */
 table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 30%;
+    max-width: 100%;
 }
 
 /* Estilos para las celdas de la tabla */
@@ -54,11 +66,20 @@ ul, li, b {
     text-align: left;
 }
 
+img:not(.ScrollIMG) {
+    height: 50%;
+    width: 50%;
+    max-width: 250px;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
 .ScrollIMG {
     right: 5px;
     bottom: 5px;
     align-items: right;
-
     width: 30px;
     height: 30px;
     border: 1px solid black;
@@ -74,14 +95,15 @@ iframe {
     height: auto;
 }
 
+/* Estilos para el párrafo */
 p {
+    margin-left: 0;
     text-align: left;
 }
 
-
 /* Estilos para el html */
-.subrayado {
-    text-decoration: solid;
+.amarillo {
+    color: yellow;
 }
 
 .rojo {
