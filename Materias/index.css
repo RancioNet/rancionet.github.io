@@ -101,6 +101,14 @@ p {
     text-align: left;
 }
 
+/* Centrar div y button */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Estilos para el html */
 .amarillo {
     color: yellow;
